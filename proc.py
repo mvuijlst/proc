@@ -25,7 +25,16 @@ while RUNNING:
 
     SCREEN.fill(WHITE)
 
-    for x in range(1, 10000):
-        SCREEN.set_at((int(random.uniform(0, WIDTH)), int(random.uniform(0, HEIGHT))), BLACK)
+    for x in range(1, 5):
+        x = int(random.uniform(0, WIDTH))
+        y = int(random.uniform(0, HEIGHT))
+        xd = int(random.uniform(-5, 5))
+        yd = int(random.uniform(-20, 20))
+        w = int(random.uniform(1, 4))
+        c = int(random.uniform(100, 200))
+        pygame.draw.line(SCREEN, (c, c, c), (x, y), (x+xd, y+yd), w)
 
     pygame.display.flip()
+    CLOCK.tick(60)
+    pygame.display.set_caption("fps: " + str(int(CLOCK.get_fps())))
+
